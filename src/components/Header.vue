@@ -32,7 +32,7 @@ const registrationStore = useRegistrationStore();
           <li v-if="$route.path === '/login' || $route.path === '/register'">
             <RouterLink to="/" class="button setting">Home</RouterLink>
           </li>
-          <li v-if="$route.path === '/movies' || $route.path === '/setting'" class ='email'>
+          <li v-if="$route.path === '/movies' || $route.path === '/setting' || $route.path === '/cart'" class ='email' >
             <h1>{{ `Hello ${registrationStore.firstName}!` }}</h1>
           </li>
         </div>
