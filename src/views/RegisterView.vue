@@ -93,7 +93,7 @@ const validateForm = (event) => {
   transform: scale(1.05);
 }
 
-/* .logo {
+.logo {
   font-size: 2rem;
   float: left !important;
   font-family: Georgia, 'Times New Roman', Times, serif;
@@ -102,28 +102,4 @@ const validateForm = (event) => {
   margin-left: 8px;
   color: hotpink;
 }
-
-.navbar .login {
-  background-color: hotpink;
-  color: white;
-  padding: 10px 20px;
-  text-decoration: none;
-  border-radius: 5px;
-  transition: background-color 0.3s;
-}
-
-.navbar .login:hover {
-  background-color: rgb(246, 151, 198);
-}
-
-.navbar {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  padding: 20px;
-}
-
-.navbar h1 {
-  font-size: 2rem;
-} */
 </style>

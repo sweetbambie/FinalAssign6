@@ -1,30 +1,49 @@
 import { defineStore } from 'pinia';
-import { ref } from 'vue';
+import { ref, onMounted } from 'vue';
 
-export const useRegistrationStore = defineStore('registration', () => {
-  const firstName = ref('');
-  const lastName = ref('');
-  const email = ref('');
-  const password = ref('');
-  const rePassword = ref('');
+// export const useRegistrationStore = defineStore('registration', () => {
+//   const firstName = ref('');
+//   const lastName = ref('');
+//   const email = ref('');
+//   const password = ref('');
+//   const rePassword = ref('');
 
-  return {
-    firstName,
-    lastName,
-    email,
-    password,
-    rePassword,
-    setRegistrationData(data) {
-      firstName.value = data.firstName;
-      lastName.value = data.lastName;
-      email.value = data.email;
-      password.value = data.password;
-      rePassword.value = '';
-    },
-  };
-}, {
-  persist: true,  
-});
+//   const persistData = () => {
+//     localStorage.setItem('firstName', firstName.value);
+//     localStorage.setItem('lastName', lastName.value);
+//     localStorage.setItem('email', email.value);
+//     localStorage.setItem('password', password.value);
+//   };
+
+//   const loadData = () => {
+//     firstName.value = localStorage.getItem('firstName') || '';
+//     lastName.value = localStorage.getItem('lastName') || '';
+//     email.value = localStorage.getItem('email') || '';
+//     password.value = localStorage.getItem('password') || '';
+//   };
+
+//   onMounted(() => {
+//     loadData();
+//   });
+
+//   const setRegistrationData = (data) => {
+//     firstName.value = data.firstName;
+//     lastName.value = data.lastName;
+//     email.value = data.email;
+//     password.value = data.password;
+//     rePassword.value = ''; 
+//     persistData(); 
+//   };
+
+//   return {
+//     firstName,
+//     lastName,
+//     email,
+//     password,
+//     rePassword,
+//     setRegistrationData,
+//   };
+// });
 
 // export const useStore = defineStore('store', () => {
 //   const cart = ref(new Map());
@@ -46,7 +65,6 @@ export const useRegistrationStore = defineStore('registration', () => {
 //     }
 //   }
 
-
 //   function addToCart(id, movieData) {
 //     cart.value.set(id, movieData);
 //     persistData()
@@ -58,7 +76,7 @@ export const useRegistrationStore = defineStore('registration', () => {
 //   }
 
 //   onMounted(() => {
-//     loadData();
+//       loadData();
 //   });
 
 //   return {
@@ -68,17 +86,53 @@ export const useRegistrationStore = defineStore('registration', () => {
 //   };
 // });
 
+// import { defineStore } from 'pinia';
+// import { ref } from 'vue';
+
+// Registration Store (without persistence)
+export const useRegistrationStore = defineStore('registration', () => {
+  const firstName = ref('');
+  const lastName = ref('');
+  const email = ref('');
+  const password = ref('');
+  const rePassword = ref('');
+
+  const setRegistrationData = (data) => {
+    firstName.value = data.firstName;
+    lastName.value = data.lastName;
+    email.value = data.email;
+    password.value = data.password;
+    rePassword.value = ''; // Clear rePassword after setting data
+  };
+
+  return {
+    firstName,
+    lastName,
+    email,
+    password,
+    rePassword,
+    setRegistrationData,
+  };
+});
+
+// Cart Store (without persistence)
 export const useStore = defineStore('store', () => {
-  const email = ref("");
   const cart = ref(new Map());
 
-  const addToCart = (key, value) => {
-    cart.value.set(key, value);
-  };
+  // Add an item to the cart
+  function addToCart(id, movieData) {
+    cart.value.set(id, movieData);
+  }
 
-  const removeFromCart = (key) => {
-    cart.value.delete(key);
-  };
+  // Remove an item from the cart
+  function removeFromCart(id) {
+    cart.value.delete(id);
+  }
 
-  return { email, cart, addToCart, removeFromCart };
+  return {
+    cart,
+    addToCart,
+    removeFromCart,
+  };
 });
+
