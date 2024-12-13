@@ -13,21 +13,19 @@ const registrationStore = useRegistrationStore();
         <div class="buttons">
           <li v-if="$route.path === '/'">
             <RouterLink to="/login" class="button login">Login</RouterLink>
-          </li>
-          <li v-if="$route.path === '/'">
             <RouterLink to="/register" class="button register">Register</RouterLink>
-          </li>
-          <li v-if="$route.path === '/movies'">
-            <RouterLink to="/cart" class="button cart">Cart</RouterLink>
           </li>
           <li v-if="$route.path === '/movies'">
             <RouterLink to="/setting" class="button setting">Setting</RouterLink>
           </li>
-          <li v-if="$route.path === '/movies' || $route.path === '/setting'">
+          <li v-if="$route.path === '/movies' || $route.path === '/setting' || $route.path === '/cart'">
             <RouterLink to="/" class="button setting">Logout</RouterLink>
           </li>
-          <li v-if="$route.path === '/setting'">
+          <li v-if="$route.path === '/setting' || $route.path === '/cart'">
             <RouterLink to="/movies" class="button setting">Movies</RouterLink>
+          </li>
+          <li v-if="$route.path === '/setting' || $route.path === '/movies'">
+            <RouterLink to="/cart" class="button cart">Cart</RouterLink>
           </li>
           <li v-if="$route.path === '/login' || $route.path === '/register'">
             <RouterLink to="/" class="button setting">Home</RouterLink>
