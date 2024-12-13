@@ -15,23 +15,15 @@ const registrationStore = useRegistrationStore();
             <RouterLink to="/login" class="button login">Login</RouterLink>
             <RouterLink to="/register" class="button register">Register</RouterLink>
           </li>
-          <li v-if="$route.path !== '/' || $route.path !== '/login'|| $route.path !== '/register' || $route.path !== '/setting'">
+          <li v-if="registrationStore.email">
+            <h1 class="email">{{ `Hello ${registrationStore.firstName}!` }}</h1>
             <RouterLink to="/setting" class="button setting">Setting</RouterLink>
-          </li>
-          <li v-if="$route.path !== '/' || $route.path !== '/login'|| $route.path !== '/register' ">
             <RouterLink to="/" class="button setting">Logout</RouterLink>
-          </li> 
-          <li v-if="$route.path !== '/movies' || $route.path !== '/' || $route.path !== '/login'|| $route.path !== '/register' ">
-            <RouterLink to="/movies" class="button setting">Movies</RouterLink>
-          </li>
-          <li v-if="$route.path !== '/cart' || $route.path !== '/' || $route.path !== '/login'|| $route.path !== '/register'">
             <RouterLink to="/cart" class="button cart">Cart</RouterLink>
+            <RouterLink to="/movies" class="button setting">Movies</RouterLink>
           </li>
           <li v-if="$route.path === '/login' || $route.path === '/register'">
             <RouterLink to="/" class="button setting">Home</RouterLink>
-          </li>
-          <li v-if="$route.path !== '/' || $route.path !== '/login'|| $route.path !== '/register' " >
-            <h1>{{ `Hello ${registrationStore.firstName}!` }}</h1>
           </li>
         </div>
       </ul>
