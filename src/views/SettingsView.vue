@@ -37,7 +37,7 @@ const updateProfileHandler = (event) => {
     firstName: firstName.value,
     lastName: lastName.value,
     email: email.value,
-    password: userStore.password.value
+    password: password.value
   });
 
   alert('Profile updated successfully!');
