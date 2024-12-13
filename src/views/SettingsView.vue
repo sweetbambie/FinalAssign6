@@ -5,6 +5,7 @@ import Header from '../components/Header.vue'
 import Footer from '../components/Footer.vue'
 
 const userStore = useRegistrationStore();
+
 const firstName = computed({
   get: () => userStore.firstName,
   set: (value) => {
@@ -31,6 +32,7 @@ const password = computed({
 });
 
 const updateProfileHandler = (event) => {
+  event.preventDefault();
   userStore.setRegistrationData({
     firstName: firstName.value,
     lastName: lastName.value,
@@ -78,7 +80,6 @@ const updateProfileHandler = (event) => {
 } 
 
 .input-field {
-  /* padding: 15px; */
   width: 100%;
   border-radius: 5px;
   border: 1px solid #ccc;
