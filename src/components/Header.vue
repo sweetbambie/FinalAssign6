@@ -23,7 +23,7 @@ const registrationStore = useRegistrationStore();
           <li v-if="$route.path === '/movies'">
             <RouterLink to="/setting" class="button setting">Setting</RouterLink>
           </li>
-          <li v-if="$route.path === '/movies'">
+          <li v-if="$route.path === '/movies' || $route.path === '/setting'">
             <RouterLink to="/" class="button setting">Logout</RouterLink>
           </li>
           <li v-if="$route.path === '/setting'">
